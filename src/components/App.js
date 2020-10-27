@@ -15,8 +15,8 @@ const App = () => {
   const [queryParam, setQueryParam] = useState("");
   const [dataArray, setDataArray] = useState([]);
 
-  const loading = (loadVar) => {
-    return loadVar === true ? (
+  const loading = () => {
+    return (
       <div className="result-class">
         <p>
           <span className="icon-class ">
@@ -25,8 +25,6 @@ const App = () => {
           Loading...
         </p>
       </div>
-    ) : (
-      ""
     );
   };
 
@@ -38,11 +36,9 @@ const App = () => {
       if (!queryParam) {
         return;
       }
-
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/posts?q=${queryParam}`
       );
-
       loadVar = false;
       setDataArray(response.data);
     })(queryParam);
@@ -52,13 +48,15 @@ const App = () => {
   const changeInput = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      loadVar = true;
-      setQueryParam(e.target.value);
+      if (e.target.value) {
+        loadVar = true;
+        setQueryParam(e.target.value);
+      }
     }
   };
 
   const giveBackResult = () => {
-    if (loadVar) return loading(loadVar);
+    if (loadVar) return loading();
     // if correct
     if (queryParam !== "" && dataArray.length > 0) {
       firstRender = false;

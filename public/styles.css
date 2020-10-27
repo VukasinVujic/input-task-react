@@ -18,11 +18,9 @@ p {
 
 .input-class {
   font-size: 3.5vw;
-  /* margin: 10px -20px 0 0; */
   margin-left: 0.5rem;
   border: none;
   width: calc(100% - 6.5vw);
-  /* background-color: lightcoral; */
 }
 
 .input-class:focus {
@@ -63,6 +61,10 @@ p {
   border-radius: 1rem 1rem 0rem 0rem;
 }
 
+.form-class:last-child {
+  border-radius: 1rem;
+}
+
 .big-container {
   position: absolute;
   left: 40%;
@@ -81,9 +83,6 @@ p {
 }
 
 @media screen and (min-width: 800px) {
-  .input-class {
-    /* background-color: brown; */
-  }
   .result-class {
     width: 72vw;
   }
@@ -93,9 +92,6 @@ p {
 }
 
 @media screen and (min-width: 1000px) {
-  .input-class {
-    /* background-color: yellow; */
-  }
   .form-class {
     width: 70vw;
   }
