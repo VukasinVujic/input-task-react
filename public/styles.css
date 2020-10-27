@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.input-class {
+  width: 95vw;
+  font-size: 5vw;
+  margin: 10px 0 0 10px;
+}
+
+@media screen and (min-width: 500px) {
+  .input-class {
+    width: 80vw;
+    font-size: 4.2vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .input-class {
+    width: 38vw;
+    font-size: 1.7vw;
+  }
+}
