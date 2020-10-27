@@ -1,32 +1,55 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+let firstRender = true;
+let loadVar = false;
+
 const App = () => {
   const [queryParam, setQueryParam] = useState("");
   const [dataArray, setDataArray] = useState([]);
 
-  useEffect(() => {
-    (async (queryParam) => {
-      const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts?q=${queryParam}`
-      );
+  const loading = (loadVar) => {
+    return loadVar === true ? (
+      <div className="result-class">
+        <p>Loading...</p>
+      </div>
+    ) : (
+      ""
+    );
+  };
 
-      setDataArray(response.data);
-    })(queryParam);
+  useEffect(() => {
+    loadVar = true;
+    setTimeout(() => {
+      (async (queryParam) => {
+        // to prevent loading without params
+        if (!queryParam) {
+          return;
+        }
+
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/posts?q=${queryParam}`
+        );
+
+        loadVar = false;
+        setDataArray(response.data);
+      })(queryParam);
+    }, 1000);
   }, [queryParam]);
 
   const changeInput = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      loadVar = true;
       setQueryParam(e.target.value);
     }
   };
 
   const giveBackResult = () => {
+    if (loadVar) return loading(loadVar);
     // if correct
     if (queryParam !== "" && dataArray.length > 0) {
-      console.log("aaaaa");
-
+      firstRender = false;
       return dataArray.map((element) => {
         return (
           <div className="result-class" key={element.id}>
@@ -36,8 +59,7 @@ const App = () => {
         );
       });
     } // if false
-    else if (queryParam !== "" && dataArray.length === 0) {
-      console.log("bbbbbbbbb");
+    else if (queryParam !== "" && dataArray.length === 0 && !firstRender) {
       return (
         <div className="result-class">
           <p>Sorry, we couldn't find anything</p>
@@ -45,13 +67,12 @@ const App = () => {
       );
       // if empty input field
     } else if (queryParam === "" && dataArray.length === 0) {
-      console.log("cccccc");
       return "";
     }
   };
 
   return (
-    <div>
+    <div className="big-container">
       <form type="submit" className="form-class">
         <input
           type="text"

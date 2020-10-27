@@ -8,13 +8,6 @@ body {
   background-color: black;
 }
 
-.input-class {
-  width: 93vw;
-  font-size: 5vw;
-  margin: 10px -20px 0 10px;
-  background-color: lightcoral;
-}
-
 h2 {
   color: white;
 }
@@ -23,14 +16,30 @@ p {
   color: #16915e;
 }
 
+.input-class {
+  width: 73vw;
+  font-size: 4vw;
+  margin: 10px -20px 0 0;
+  background-color: lightcoral;
+}
+
 .result-class {
-  width: 93vw;
-  margin: 10px -20px 0 10px;
+  width: 73vw;
+  margin: 10px -20px 0 0;
   background-color: #1fdb8d;
-  margin-bottom: -10px;
+  margin-bottom: -11px;
 }
 .form-class {
   margin-bottom: -7.5px;
+}
+
+.big-container {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
 }
 
 @media screen and (min-width: 800px) {
@@ -47,10 +56,10 @@ p {
 @media screen and (min-width: 1000px) {
   .input-class {
     background-color: yellow;
-    width: 48vw;
-    font-size: 2.3vw;
+    width: 68vw;
+    font-size: 3.3vw;
   }
   .result-class {
-    width: 48vw;
+    width: 68vw;
   }
 }
