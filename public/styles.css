@@ -17,20 +17,50 @@ p {
 }
 
 .input-class {
-  width: 73vw;
-  font-size: 4vw;
-  margin: 10px -20px 0 0;
-  background-color: lightcoral;
+  font-size: 3.5vw;
+  /* margin: 10px -20px 0 0; */
+  margin-left: 0.5rem;
+  border: none;
+  width: calc(100% - 6.5vw);
+  /* background-color: lightcoral; */
+}
+
+.input-class:focus {
+  border: none;
+  outline: none;
 }
 
 .result-class {
-  width: 73vw;
+  width: 72vw;
   margin: 10px -20px 0 0;
   background-color: #1fdb8d;
   margin-bottom: -11px;
+  padding: 0.7rem;
 }
+
+.search-icon {
+  width: 3.5vw !important;
+  height: 3.5vw !important;
+}
+
+.result-class:hover {
+  background-color: #2aaa75;
+  cursor: pointer;
+}
+
+.result-class:last-child {
+  border-radius: 0rem 0rem 1rem 1rem;
+  margin-bottom: 3rem;
+}
+
 .form-class {
+  width: 72vw;
   margin-bottom: -7.5px;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  border: solid black 1px;
+  background: white;
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
 .big-container {
@@ -42,24 +72,43 @@ p {
   height: 50%;
 }
 
+.icon-class {
+  margin-right: 0.5rem;
+}
+
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+
 @media screen and (min-width: 800px) {
   .input-class {
-    background-color: brown;
+    /* background-color: brown; */
+  }
+  .result-class {
+    width: 72vw;
+  }
+  .form-class {
+    width: 72vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .input-class {
+    /* background-color: yellow; */
+  }
+  .form-class {
     width: 70vw;
-    font-size: 3.2vw;
   }
   .result-class {
     width: 70vw;
   }
 }
 
-@media screen and (min-width: 1000px) {
-  .input-class {
-    background-color: yellow;
-    width: 68vw;
-    font-size: 3.3vw;
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
   }
-  .result-class {
-    width: 68vw;
+  to {
+    transform: rotate(359deg);
   }
 }
