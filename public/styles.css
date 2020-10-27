@@ -4,22 +4,53 @@
   box-sizing: border-box;
 }
 
-.input-class {
-  width: 95vw;
-  font-size: 5vw;
-  margin: 10px 0 0 10px;
+body {
+  background-color: black;
 }
 
-@media screen and (min-width: 500px) {
+.input-class {
+  width: 93vw;
+  font-size: 5vw;
+  margin: 10px -20px 0 10px;
+  background-color: lightcoral;
+}
+
+h2 {
+  color: white;
+}
+
+p {
+  color: #16915e;
+}
+
+.result-class {
+  width: 93vw;
+  margin: 10px -20px 0 10px;
+  background-color: #1fdb8d;
+  margin-bottom: -10px;
+}
+.form-class {
+  margin-bottom: -7.5px;
+}
+
+@media screen and (min-width: 800px) {
   .input-class {
-    width: 80vw;
-    font-size: 4.2vw;
+    background-color: brown;
+    width: 70vw;
+    font-size: 3.2vw;
+  }
+  .result-class {
+    width: 70vw;
   }
 }
 
 @media screen and (min-width: 1000px) {
   .input-class {
-    width: 38vw;
-    font-size: 1.7vw;
+    background-color: yellow;
+    width: 48vw;
+    font-size: 2.3vw;
+  }
+  .result-class {
+    width: 48vw;
   }
 }
